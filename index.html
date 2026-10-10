@@ -7,8 +7,9 @@
 <meta name="theme-color" content="#0f0608">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=La+Belle+Aurore&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:'Mrs Saint Delafield';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/MrsSaintDelafield-normal-400-latin.woff2') format('woff2')}
 :root{
   --ink:#0f0608;
   --wine:#6e0f1f;
@@ -19,7 +20,8 @@
   --paper-d:#d9c9a8;
   --text:#e9dcc3;
   --serif:'Cormorant Garamond',Georgia,serif;
-  --hand:'La Belle Aurore',cursive;
+  --hand:'Mrs Saint Delafield','Cormorant Garamond',cursive;
+  --fiber:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.012 .6' numOctaves='4' seed='3'/><feColorMatrix values='0 0 0 0 .38  0 0 0 0 .27  0 0 0 0 .13  0 0 0 .38 -.1'/></filter><rect width='100%' height='100%' filter='url(%23f)'/></svg>");
   --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .16 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -60,6 +62,7 @@ body::after{ /* körnung */
   --w:min(86vw,500px);
   position:relative;width:var(--w);height:calc(var(--w)*.66);
   perspective:1500px;
+  transform:rotate(-1.2deg);
   transition:transform 1.2s cubic-bezier(.5,0,.2,1), opacity 1s;
   filter:drop-shadow(0 30px 40px rgba(0,0,0,.65));
 }
@@ -72,11 +75,12 @@ body::after{ /* körnung */
 .paperfx{
   background-color:var(--paper);
   background-image:
-    var(--noise),
-    radial-gradient(circle at 18% 22%,rgba(120,80,30,.16),transparent 22%),
-    radial-gradient(circle at 82% 78%,rgba(90,40,20,.18),transparent 26%),
+    var(--fiber),var(--noise),
+    radial-gradient(circle at 18% 22%,rgba(120,80,30,.18),transparent 22%),
+    radial-gradient(circle at 82% 78%,rgba(90,40,20,.2),transparent 26%),
+    radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(110,70,25,.28) 100%),
     linear-gradient(120deg,rgba(255,255,255,.35),transparent 40%,rgba(120,80,30,.1));
-  background-blend-mode:multiply,normal,normal,normal;
+  background-blend-mode:multiply,multiply,normal,normal,normal,normal;
 }
 /* brief im umschlag */
 .letter{
@@ -99,11 +103,11 @@ body::after{ /* körnung */
 .pocket svg{position:absolute;inset:0;width:100%;height:100%}
 .address{
   left:0;right:0;top:70%;z-index:4;text-align:center;pointer-events:none;
-  font-family:var(--hand);font-size:clamp(1.5rem,6.2vw,2.3rem);color:#2f1a1d;
-  transform:rotate(-2.5deg);opacity:.92;
-  text-shadow:0 0 1px rgba(40,10,15,.5);
+  font-family:var(--hand);font-size:clamp(2.7rem,11.5vw,4.2rem);line-height:.9;color:#1f1520;
+  transform:rotate(-3deg);opacity:.93;
+  text-shadow:0 0 1.2px rgba(30,15,40,.65);
 }
-.address small{display:block;font-family:var(--serif);font-style:italic;font-size:.8rem;letter-spacing:.12em;color:#6b4a40;margin-top:-.3rem}
+.address small{display:block;font-family:var(--serif);font-style:italic;font-size:.8rem;letter-spacing:.12em;color:#6b4a40;margin-top:.1rem}
 /* klappe */
 .flap{
   left:0;top:0;width:100%;height:58%;z-index:5;
@@ -137,7 +141,7 @@ body::after{ /* körnung */
 .env.open .seal .hr{transform:translate(28px,58px) rotate(30deg);opacity:0}
 .hint{margin-top:2.4rem;font-style:italic;color:var(--gold);letter-spacing:.06em;font-size:1rem;animation:pulse 2.4s infinite ease-in-out;transition:opacity .6s}
 @keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
-.stage.done .env{transform:translateY(-8vh) scale(.9);opacity:.0}
+.stage.done .env{transform:translateY(-8vh) scale(.9) rotate(-1.2deg);opacity:0}
 .stage.done .hint,.stage.done .eyebrow{opacity:0}
 
 /* ---------- Inhalt ---------- */
@@ -158,26 +162,41 @@ section.in{opacity:1;transform:none}
 
 /* gedicht */
 .poem{padding-top:12vh}
-.ptitle{font-weight:400;font-style:italic;text-align:center;font-size:clamp(2.4rem,10vw,4.4rem);line-height:1.05;color:#f1e6cf;text-shadow:0 0 40px rgba(160,30,50,.5);margin-bottom:2.2rem}
-.ptitle small{display:block;margin-top:.7rem;font-size:.32em;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);font-style:normal}
+.ptitle{font-family:var(--hand);font-weight:400;text-align:center;font-size:clamp(4rem,19vw,8rem);line-height:.85;color:#f1e6cf;text-shadow:0 0 40px rgba(160,30,50,.5);margin-bottom:2.2rem}
+.ptitle small{display:block;margin-top:1.2rem;font-family:var(--serif);line-height:1.2;font-size:.17em;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);font-style:normal}
 .verse{text-align:center;font-style:italic;font-size:1.12rem;line-height:1.75}
 .verse .st{margin-bottom:2rem;opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s ease}
 .verse .st.in{opacity:1;transform:none}
 .verse .fin{color:var(--wine);font-weight:600;margin:3rem 0 0;font-size:1.25rem}
 
 /* brief */
+.paper.paperfx{background:none;isolation:isolate;box-shadow:none}
+.paper::after{
+  content:"";position:absolute;inset:0;z-index:-1;border-radius:2px;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(180deg,transparent calc(33.33% - 1px),rgba(70,40,10,.2) 33.33%,rgba(255,255,255,.4) calc(33.33% + 1.5px),transparent calc(33.33% + 7px)),
+    linear-gradient(180deg,transparent calc(66.66% - 1px),rgba(70,40,10,.2) 66.66%,rgba(255,255,255,.4) calc(66.66% + 1.5px),transparent calc(66.66% + 7px)),
+    linear-gradient(180deg,transparent 29%,rgba(70,40,10,.07) 33.33%,transparent 38%),
+    linear-gradient(180deg,transparent 62%,rgba(70,40,10,.07) 66.66%,transparent 71%),
+    var(--fiber),var(--noise),
+    radial-gradient(circle at 12% 18%,rgba(120,80,30,.2),transparent 20%),
+    radial-gradient(circle at 88% 84%,rgba(90,40,20,.22),transparent 26%),
+    radial-gradient(ellipse at 50% 50%,transparent 50%,rgba(110,70,25,.34) 100%);
+  background-blend-mode:normal,normal,normal,normal,multiply,multiply,normal,normal,normal;
+  filter:url(#deckle) drop-shadow(0 22px 26px rgba(0,0,0,.62));
+}
 .paper{
   position:relative;color:#3b1d22;border-radius:3px;
-  padding:clamp(1.6rem,6vw,3.2rem);
-  box-shadow:0 20px 50px rgba(0,0,0,.6),inset 0 0 70px rgba(110,70,25,.28);
+  padding:clamp(1.8rem,6vw,3.4rem);
 }
 .paper::before{content:"";position:absolute;inset:10px;border:1px solid rgba(110,15,31,.28);pointer-events:none}
 .paper .stain{position:absolute;right:6%;top:5%;width:70px;height:70px;border-radius:50%;
   border:2px solid rgba(110,70,25,.14);box-shadow:inset 0 0 14px rgba(110,70,25,.12);transform:rotate(20deg)}
 .letter-body p{margin-bottom:1.1rem}
 .letter-body .dear{font-size:1.9rem;font-style:italic;color:var(--wine);margin-bottom:1.2rem}
-.sig{font-family:var(--hand);font-size:1.9rem;color:var(--wine);margin-top:1.6rem;line-height:1.2;transform:rotate(-2deg);display:inline-block}
-.ps{font-family:var(--hand);font-size:1.25rem;color:#5a3a3a;margin-top:1.4rem}
+.sig{font-family:var(--hand);font-size:3.6rem;color:var(--wine);margin-top:1.6rem;line-height:1.2;transform:rotate(-2deg);display:inline-block}
+.ps{font-family:var(--hand);font-size:2.1rem;line-height:1.1;color:#4a2a30;margin-top:1.4rem;text-shadow:0 0 1px rgba(60,20,30,.4)}
 
 /* gutschein */
 .ticket{
@@ -219,7 +238,7 @@ section.in{opacity:1;transform:none}
 .btn:hover{background:var(--wine);color:#fff3dc}
 .btn[hidden]{display:none}
 footer{position:relative;z-index:2;text-align:center;padding:3rem 20px 6rem;color:#8d7b63;font-style:italic}
-footer .hand{font-family:var(--hand);font-size:2.2rem;color:var(--gold-l);font-style:normal;display:block;margin-bottom:.4rem}
+footer .hand{font-family:var(--hand);font-size:3.6rem;line-height:1;color:var(--gold-l);font-style:normal;display:block;margin-bottom:.4rem}
 h2.sec{font-weight:400;font-style:italic;font-size:clamp(1.9rem,6.5vw,2.8rem);text-align:center;color:#f4e9d1;line-height:1.1;margin-top:.5rem}
 
 @media (max-width:560px){
@@ -236,6 +255,18 @@ h2.sec{font-weight:400;font-style:italic;font-size:clamp(1.9rem,6.5vw,2.8rem);te
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="deckle" x="-3%" y="-3%" width="106%" height="106%">
+    <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4" result="a"/>
+    <feTurbulence type="fractalNoise" baseFrequency=".25" numOctaves="3" seed="9" result="b"/>
+    <feDisplacementMap in="SourceGraphic" in2="a" scale="9" result="c"/>
+    <feDisplacementMap in="c" in2="b" scale="3"/>
+  </filter>
+  <filter id="wax" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency=".07" numOctaves="3" seed="2" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+  </filter>
+</svg>
 <canvas id="dust" aria-hidden="true"></canvas>
 
 <div class="stage" id="stage">
@@ -441,7 +472,8 @@ const sealSVG = `
       <stop offset="0" stop-color="#b3283d"/><stop offset=".55" stop-color="#8a1429"/><stop offset="1" stop-color="#4c0813"/>
     </radialGradient>
   </defs>
-  <path fill="url(#wx)" d="M50 3c8 0 13 6 21 8s18 2 21 11-4 15-4 23 9 13 5 22-14 10-21 15-12 15-22 15-14-9-22-15-18-7-22-16 4-14 4-22-9-14-5-23 14-8 22-10S42 3 50 3z"/>
+  <path filter="url(#wax)" fill="url(#wx)" stroke="#3a0610" stroke-width="1.5" d="M50 3c8 0 13 6 21 8s18 2 21 11-4 15-4 23 9 13 5 22-14 10-21 15-12 15-22 15-14-9-22-15-18-7-22-16 4-14 4-22-9-14-5-23 14-8 22-10S42 3 50 3z"/>
+  <ellipse cx="38" cy="30" rx="22" ry="12" fill="rgba(255,200,205,.16)" transform="rotate(-25 38 30)"/>
   <circle cx="50" cy="51" r="30" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2"/>
   <circle cx="50" cy="51" r="30.8" fill="none" stroke="rgba(255,180,190,.22)" stroke-width="1" transform="translate(.6 .8)"/>
   <circle cx="50" cy="51" r="25" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="1"/>
