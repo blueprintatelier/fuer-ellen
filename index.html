@@ -131,29 +131,13 @@ h2.sec{font-weight:600;font-style:italic;font-size:clamp(2rem,7vw,2.9rem);text-a
 .fg-tag{font-family:var(--script);font-size:clamp(1.7rem,6vw,2.3rem);line-height:1.3;color:var(--wine);text-align:center;margin-top:.3rem}
 .fg-text p{max-width:32em;margin:1.2rem auto 0;text-align:center;font-size:1.3rem}
 .fg-text p:first-child{font-style:italic;font-size:1.45rem;color:var(--wine)}
-.mini{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--wine);font-weight:600;margin-bottom:.5rem}
-.box{background:var(--ivory);background-image:var(--grain);border:1px solid rgba(217,163,166,.8);border-radius:3px;padding:1.3rem 1.4rem;text-align:center;box-shadow:0 10px 26px rgba(90,30,40,.1)}
-.box .v{font-size:1.4rem;font-style:italic;font-weight:600;color:var(--ink);line-height:1.3}
-.box p{color:var(--soft);font-size:1.08rem;margin-top:.3rem;line-height:1.45}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:2.2rem}
-.stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:1.2rem}
-.stations .box .n{display:block;font-style:italic;color:var(--rose);font-size:1.5rem;line-height:1}
-.stations .box .v{margin-top:.4rem}
-.note{text-align:center;font-style:italic;color:var(--soft);margin-top:1rem;font-size:1.08rem}
-.day{list-style:none;margin:1.6rem auto 0;max-width:420px;position:relative;padding-left:34px}
-.day::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:1px;background:var(--rose)}
-.day li{position:relative;padding:.35rem 0;font-size:1.25rem;font-style:italic;font-weight:600}
-.day li::before{content:"";position:absolute;left:-30px;top:.95rem;width:11px;height:11px;border-radius:50%;background:var(--ivory);border:1.5px solid var(--wine)}
-.swatches{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:1.8rem}
-.sw{text-align:center;font-size:.95rem;color:var(--soft);width:84px;line-height:1.3}
-.sw i{display:block;width:62px;height:62px;border-radius:50%;margin:0 auto .5rem;border:1px solid rgba(58,28,36,.25);box-shadow:inset 0 -6px 10px rgba(0,0,0,.12),0 6px 12px rgba(90,30,40,.15)}
-.sw em{display:block;font-size:.8rem;color:var(--rose)}
-.ready{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:1.6rem}
-.ready .box{text-align:left}
-.ready .box p{margin-top:.1rem}
-.leit{font-family:var(--script);font-size:clamp(1.8rem,6.5vw,2.5rem);line-height:1.4;color:var(--wine);text-align:center;margin-top:2.6rem}
+.vorwort p{font-size:1.28rem}
+.vorwort p.ausklang{font-style:italic;font-weight:600;color:var(--wine);font-size:1.45rem;margin-top:2rem}
+.locs{list-style:none;text-align:center;margin-top:1.4rem}
+.locs li{font-size:1.5rem;font-style:italic;font-weight:600;padding:.75rem 0;color:var(--ink);border-bottom:1px solid rgba(217,163,166,.6);max-width:420px;margin:0 auto}
+.locs li:last-child{border-bottom:0}
+.locs small{display:block;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;font-style:normal;color:var(--wine);font-weight:600;margin-top:.1rem}
 .credit{text-align:center;margin-top:1.4rem;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
-@media (max-width:560px){.duo{grid-template-columns:1fr}}
 
 .card{background:var(--ivory);background-image:var(--grain);border:1px solid rgba(122,29,49,.25);border-radius:3px;padding:clamp(1.8rem,6vw,3.2rem);position:relative;box-shadow:0 18px 40px rgba(90,30,40,.16)}
 .card::before{content:"";position:absolute;inset:9px;border:1px solid rgba(217,163,166,.7);pointer-events:none}
@@ -327,61 +311,37 @@ footer .hand{font-family:var(--script);font-size:clamp(2.3rem,8.5vw,3.3rem);line
     <p class="k">Dein Shooting</p>
     <div class="orn"><span>✦</span></div>
     <h2 class="fg-name">FORGOTTEN</h2>
-    <p class="fg-tag">A beauty untouched by time.</p>
+    <p class="fg-tag">a beauty untouched by time.</p>
     <div class="fg-text">
-      <p>Es gibt Orte, die die Zeit vergessen hat. Und eine Schönheit, die dort wartet, ohne gesehen werden zu wollen.</p>
-      <p>FORGOTTEN ist ein Editorial zwischen Nebel, Moos und altem Holz. Kleider ohne Epoche, Haltungen ohne Pose, eine Natur, die mehr erzählt als jede Kulisse. Du stehst im Mittelpunkt, aber der Ort spielt mit.</p>
-    </div>
-    <div class="duo">
-      <div class="box"><div class="mini">Wo</div><div class="v">Dietingen und Umgebung</div></div>
-      <div class="box"><div class="mini">Wann</div><div class="v">Ende Oktober / November</div><p>früh am Morgen, wenn noch Nebel liegt</p></div>
-    </div>
-    <p class="note">Den genauen Termin stimmen wir mit dir ab, je nach Wetter und Licht.</p>
-  </section>
-
-  <section>
-    <p class="k">Die Stationen</p>
-    <h2 class="sec">Drei Orte, drei Bilder</h2>
-    <div class="stations">
-      <div class="box"><span class="n">I</span><div class="v">Der Baum</div><p>Du, klein vor einem alten Baum.</p></div>
-      <div class="box"><span class="n">II</span><div class="v">Das Feld</div><p>Hohes Gras, Wind, ein Kleid in Bewegung.</p></div>
-      <div class="box"><span class="n">III</span><div class="v">Das Moos</div><p>Nahe Porträts, Haar im Gesicht.</p></div>
-    </div>
-    <p class="note">Vielleicht kommen noch das Wasser und ein Weg dazu.</p>
-    <ol class="day">
-      <li>Ankunft</li><li>Hair &amp; Make-up</li><li>Station I</li><li>Warme Pause</li><li>Outfitwechsel</li><li>Station II und III</li><li>Abschluss</li>
-    </ol>
-    <p class="note">Die Zeiten können sich mit Wetter und Licht verschieben.</p>
-  </section>
-
-  <section>
-    <p class="k">Der Look</p>
-    <h2 class="sec">Ein Hauch Rot</h2>
-    <div class="fg-text"><p style="font-style:normal;font-size:1.3rem;color:var(--ink)">Weiß, Schwarz, höchstens ein Hauch Rot. Jedes Outfit eine Farbe, kein Muster, kein Lärm. Wie Kleider, Tüll, Samt, Schleppe oder Cape, und der Rest kommt von draußen.</p></div>
-    <div class="swatches">
-      <div class="sw"><i style="background:#fbf6ee"></i>Weiß</div>
-      <div class="sw"><i style="background:#1a1114"></i>Schwarz</div>
-      <div class="sw"><i style="background:#7a1d31"></i>Rot<em>sparsam</em></div>
-      <div class="sw"><i style="background:#6b7355"></i>Moos<em>vom Ort</em></div>
-      <div class="sw"><i style="background:#b9bbb6"></i>Nebel<em>vom Ort</em></div>
-      <div class="sw"><i style="background:#8a6f58"></i>Erde<em>vom Ort</em></div>
+      <p>FORGOTTEN ist ein Portal in eine Welt, die keine Zeit kennt. Zwischen Nebel, Moos und altem Holz entsteht ein Editorial fernab unserer Realität – mythisch, still und ein wenig unheimlich.</p>
     </div>
   </section>
 
   <section>
-    <p class="k">Let's get shoot ready</p>
-    <h2 class="sec">So kommst du gut vorbereitet an</h2>
-    <div class="ready">
-      <div class="box"><div class="mini">Vorher</div><p>Gepflegte, natürliche Nägel, Feuchtigkeitsmaske am Vortag, weiche Lippen. Haare gewaschen, aber ohne Pflegeprodukte, und kein Selbstbräuner.</p></div>
-      <div class="box"><div class="mini">Draußen</div><p>Es ist kalt, nass und uneben. Wärm dich bis zur Aufnahme warm und schlaf vorher ausreichend.</p></div>
-      <div class="box"><div class="mini">Posing</div><p>Übe Blick und Haltung vorher. Der Blick geht meist nicht in die Kamera.</p></div>
+    <p class="k">Das Vorwort</p>
+    <div class="orn"><span>✦</span></div>
+    <div class="fg-text vorwort">
+      <p>Manche Orte fühlen sich an, als hätte die Zeit sie längst vergessen.</p>
+      <p>FORGOTTEN ist ein Portal in eine Welt, die keine Zeit kennt.</p>
+      <p>Ein Editorial fernab unserer Realität – zwischen Nebel, Moos, altem Holz und einer Natur, die ihre eigenen Regeln zu kennen scheint. Hier gibt es kein Gestern und kein Heute. Keine Epoche, die sich eindeutig benennen lässt. Nur einen Ort, der wirkt, als hätte er schon existiert, bevor wir ihn entdeckt haben.</p>
+      <p>Die Mystik steht nicht im Vordergrund. Sie liegt in der Luft. In einem Blick, der ins Leere geht. In Stoff, der sich im Wind bewegt. In einer Gestalt, die zwischen Bäumen verschwindet. In zwei Menschen, die sich an den Händen halten, als würden sie einander durch diese fremde Welt führen.</p>
+      <p>FORGOTTEN soll sich nicht wie eine inszenierte Geschichte anfühlen. Eher wie ein Bild, das man irgendwo gefunden hat und nicht ganz erklären kann.</p>
+      <p class="ausklang">Eine Welt, die vielleicht nie existiert hat.<br>Oder eine, die wir nur vergessen haben.</p>
     </div>
-    <p class="k" style="margin-top:2.4rem">Packliste</p>
-    <div class="chips">
-      <span>Langer Mantel oder Bademantel</span><span>Gummistiefel oder warme Schuhe</span><span>Decke</span><span>Thermoskanne</span><span>Handwärmer</span><span>Mütze und Handschuhe</span><span>Ersatzsocken</span><span>Handtuch</span>
-    </div>
-    <p class="leit">Wirkt das Bild, als wäre es schon immer da gewesen?</p>
-    <p class="credit">A Blueprint Atelier Production</p>
+  </section>
+
+  <section>
+    <p class="k">Shooting locations</p>
+    <div class="orn"><span>✦</span></div>
+    <ul class="locs">
+      <li>Der kahle Baum<small>mystisch</small></li>
+      <li>Der kaputte Schuppen</li>
+      <li>Der kleine See</li>
+      <li>Das Feld</li>
+      <li>Der Waldeingang</li>
+    </ul>
+    <p class="fg-tag" style="margin-top:2.6rem">a beauty untouched by time.</p>
+    <p class="credit">Ein Projekt von Blueprint Atelier</p>
   </section>
 
   <section>
@@ -416,8 +376,8 @@ footer .hand{font-family:var(--script);font-size:clamp(2.3rem,8.5vw,3.3rem);line
       <div class="facts">
         <div class="fact"><div class="fl">Für</div><div class="fv">Ellen</div></div>
         <div class="fact"><div class="fl">Von</div><div class="fv">Carolin &amp; Luis</div></div>
-        <div class="fact"><div class="fl">Wo</div><div class="fv">Dietingen und Umgebung</div></div>
-        <div class="fact"><div class="fl">Wann</div><div class="fv">Ende Oktober / November</div></div>
+        <div class="fact"><div class="fl">Wo</div><div class="fv">Dietingen</div></div>
+        <div class="fact"><div class="fl">Wann</div><div class="fv">Ende Oktober / November 2026</div></div>
         <div class="fact" data-opt="validUntil"><div class="fl">Gültig bis</div><div class="fv" data-field="validUntil"></div></div>
         <div class="fact" data-opt="duration"><div class="fl">Dauer</div><div class="fv" data-field="duration"></div></div>
       </div>
@@ -429,7 +389,7 @@ footer .hand{font-family:var(--script);font-size:clamp(2.3rem,8.5vw,3.3rem);line
     <h2 class="sec">Von hier bis zum Shooting</h2>
     <div class="steps">
       <div class="step"><div><h3>Termin aussuchen</h3><p>Such dir einen Tag, der zu dir passt. Sag uns einfach Bescheid, den Rest klären wir gemeinsam.</p></div></div>
-      <div class="step"><div><h3>Stimmung festlegen</h3><p>Einfarbig in Weiß oder Schwarz, höchstens ein Hauch Rot. Überlege dir, wie du dich zeigen willst. Alles Wichtige steht weiter oben.</p></div></div>
+      <div class="step"><div><h3>Stimmung festlegen</h3><p>Überlege dir, wie du dich zeigen willst, wie ein Bild, das man irgendwo gefunden hat. Outfit und Stimmung besprechen wir vorher gemeinsam.</p></div></div>
       <div class="step"><div><h3>Hingehen und genießen</h3><p>Du musst nichts weiter tun, als du selbst zu sein. Das Geschenk ist bezahlt.</p></div></div>
     </div>
     <div class="cta"><a class="btn" id="book" href="#" hidden>Termin ausmachen</a></div>
