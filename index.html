@@ -46,11 +46,11 @@ svg.defs{position:absolute;width:0;height:0}
 
 /* ---------- Umschlag ---------- */
 .stage{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22vh 20px 10vh}
-.bats{position:absolute;top:7vh;left:0;right:0;height:90px;pointer-events:none}
-.bats svg{position:absolute;width:34px;height:17px;animation:fly 7s infinite ease-in-out}
-.bats svg:nth-child(1){left:22%;top:20px}
-.bats svg:nth-child(2){left:68%;top:4px;width:26px;animation-delay:-2s}
-.bats svg:nth-child(3){left:46%;top:44px;width:20px;animation-delay:-4s}
+.bats{position:absolute;top:0;left:0;right:0;height:36vh;pointer-events:none}
+.bats svg{position:absolute;animation:fly 7s infinite ease-in-out}
+.bats svg:nth-child(1){left:8%;top:22%;width:clamp(90px,21vw,150px);height:auto;aspect-ratio:2/1;transform:rotate(-10deg)}
+.bats svg:nth-child(2){left:60%;top:8%;width:clamp(64px,14vw,105px);height:auto;aspect-ratio:2/1;animation-delay:-2.5s}
+.bats svg:nth-child(3){left:80%;top:38%;width:clamp(44px,9vw,70px);height:auto;aspect-ratio:2/1;animation-delay:-4.5s}
 @keyframes fly{0%,100%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(14px,-10px) rotate(5deg)}}
 .eyebrow{font-family:var(--script);font-size:2rem;line-height:1.2;color:var(--wine);margin-bottom:1.8rem;text-align:center}
 .env{
@@ -64,7 +64,7 @@ svg.defs{position:absolute;width:0;height:0}
 .env-back{inset:0;background:var(--wine);border-radius:3px;
   background-image:repeating-linear-gradient(45deg,rgba(255,220,220,.08) 0 1px,transparent 1px 12px),repeating-linear-gradient(-45deg,rgba(255,220,220,.08) 0 1px,transparent 1px 12px)}
 .letter{
-  left:5%;right:5%;top:7%;height:88%;z-index:2;border-radius:2px;background:#fff9f1;
+  overflow:hidden;left:5%;right:5%;top:7%;height:88%;z-index:2;border-radius:2px;background:#fff9f1;
   background-image:var(--grain);padding:13% 8% 0;color:var(--ink);text-align:center;
   box-shadow:0 -2px 6px rgba(60,20,30,.2);
   transition:transform 1.3s cubic-bezier(.3,.7,.2,1) 1.35s;
@@ -79,7 +79,7 @@ svg.defs{position:absolute;width:0;height:0}
 .pocket .pr{clip-path:polygon(100% 0,48% 56%,100% 100%);background-color:#f1e5d1}
 .pocket .pb{clip-path:polygon(0 100%,50% 50%,100% 100%);background-color:#fbf4e6}
 .pocket svg{position:absolute;inset:0;width:100%;height:100%}
-.address{left:0;right:0;top:73%;z-index:4;text-align:center;pointer-events:none;font-family:var(--script);
+.address{left:0;right:0;top:76%;z-index:4;text-align:center;pointer-events:none;font-family:var(--script);
   font-size:clamp(1.9rem,7.5vw,2.7rem);line-height:1;color:var(--plum);transform:rotate(-3deg);text-shadow:0 0 1px rgba(40,15,30,.5)}
 .address small{display:block;font-family:var(--serif);font-style:italic;font-size:.82rem;letter-spacing:.12em;color:var(--soft);margin-top:.1rem}
 .flap{left:0;top:0;width:100%;height:58%;z-index:5;transform-origin:50% 0;transform-style:preserve-3d;
@@ -125,6 +125,36 @@ h2.sec{font-weight:600;font-style:italic;font-size:clamp(2rem,7vw,2.9rem);text-a
 .verse .fin::after{display:none}
 .verse .fin{font-family:var(--script);font-style:normal;font-weight:400;font-size:clamp(1.7rem,6.3vw,2.4rem);line-height:1.35;color:var(--wine);margin-top:1rem}
 
+
+/* forgotten */
+.fg-name{letter-spacing:.32em;padding-left:.32em;font-size:clamp(1.4rem,6.4vw,2.5rem);font-weight:600;color:var(--plum);text-align:center;margin-top:.6rem}
+.fg-tag{font-family:var(--script);font-size:clamp(1.7rem,6vw,2.3rem);line-height:1.3;color:var(--wine);text-align:center;margin-top:.3rem}
+.fg-text p{max-width:32em;margin:1.2rem auto 0;text-align:center;font-size:1.3rem}
+.fg-text p:first-child{font-style:italic;font-size:1.45rem;color:var(--wine)}
+.mini{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--wine);font-weight:600;margin-bottom:.5rem}
+.box{background:var(--ivory);background-image:var(--grain);border:1px solid rgba(217,163,166,.8);border-radius:3px;padding:1.3rem 1.4rem;text-align:center;box-shadow:0 10px 26px rgba(90,30,40,.1)}
+.box .v{font-size:1.4rem;font-style:italic;font-weight:600;color:var(--ink);line-height:1.3}
+.box p{color:var(--soft);font-size:1.08rem;margin-top:.3rem;line-height:1.45}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:2.2rem}
+.stations{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:1.2rem}
+.stations .box .n{display:block;font-style:italic;color:var(--rose);font-size:1.5rem;line-height:1}
+.stations .box .v{margin-top:.4rem}
+.note{text-align:center;font-style:italic;color:var(--soft);margin-top:1rem;font-size:1.08rem}
+.day{list-style:none;margin:1.6rem auto 0;max-width:420px;position:relative;padding-left:34px}
+.day::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:1px;background:var(--rose)}
+.day li{position:relative;padding:.35rem 0;font-size:1.25rem;font-style:italic;font-weight:600}
+.day li::before{content:"";position:absolute;left:-30px;top:.95rem;width:11px;height:11px;border-radius:50%;background:var(--ivory);border:1.5px solid var(--wine)}
+.swatches{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:1.8rem}
+.sw{text-align:center;font-size:.95rem;color:var(--soft);width:84px;line-height:1.3}
+.sw i{display:block;width:62px;height:62px;border-radius:50%;margin:0 auto .5rem;border:1px solid rgba(58,28,36,.25);box-shadow:inset 0 -6px 10px rgba(0,0,0,.12),0 6px 12px rgba(90,30,40,.15)}
+.sw em{display:block;font-size:.8rem;color:var(--rose)}
+.ready{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:1.6rem}
+.ready .box{text-align:left}
+.ready .box p{margin-top:.1rem}
+.leit{font-family:var(--script);font-size:clamp(1.8rem,6.5vw,2.5rem);line-height:1.4;color:var(--wine);text-align:center;margin-top:2.6rem}
+.credit{text-align:center;margin-top:1.4rem;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
+@media (max-width:560px){.duo{grid-template-columns:1fr}}
+
 .card{background:var(--ivory);background-image:var(--grain);border:1px solid rgba(122,29,49,.25);border-radius:3px;padding:clamp(1.8rem,6vw,3.2rem);position:relative;box-shadow:0 18px 40px rgba(90,30,40,.16)}
 .card::before{content:"";position:absolute;inset:9px;border:1px solid rgba(217,163,166,.7);pointer-events:none}
 .card p{margin-bottom:1.1rem}
@@ -144,7 +174,7 @@ h2.sec{font-weight:600;font-style:italic;font-size:clamp(2rem,7vw,2.9rem);text-a
 .t-main{padding:2.4rem 2rem 2.2rem;text-align:center}
 .t-main .k{color:var(--wine)}
 .t-main h2{font-family:var(--script);font-weight:400;font-size:clamp(2.8rem,10.5vw,4rem);line-height:1.15;margin:1rem 0 .6rem;color:var(--wine)}
-.t-main .studio{letter-spacing:.5em;font-size:1.05rem;color:var(--ink);font-weight:600;padding-left:.5em}
+.t-main .studio{letter-spacing:.36em;font-size:1.05rem;color:var(--ink);font-weight:600;padding-left:.5em}
 .t-main .for{margin-top:1rem;font-style:italic;color:var(--soft)}
 .t-stub{border-left:1.5px dashed rgba(122,29,49,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem;margin:14px 0}
 .t-stub .num{font-size:.75rem;letter-spacing:.3em;color:var(--soft);font-weight:600}
@@ -292,6 +322,68 @@ footer .hand{font-family:var(--script);font-size:clamp(2.3rem,8.5vw,3.3rem);line
     </div>
   </section>
 
+
+  <section>
+    <p class="k">Dein Shooting</p>
+    <div class="orn"><span>✦</span></div>
+    <h2 class="fg-name">FORGOTTEN</h2>
+    <p class="fg-tag">A beauty untouched by time.</p>
+    <div class="fg-text">
+      <p>Es gibt Orte, die die Zeit vergessen hat. Und eine Schönheit, die dort wartet, ohne gesehen werden zu wollen.</p>
+      <p>FORGOTTEN ist ein Editorial zwischen Nebel, Moos und altem Holz. Kleider ohne Epoche, Haltungen ohne Pose, eine Natur, die mehr erzählt als jede Kulisse. Du stehst im Mittelpunkt, aber der Ort spielt mit.</p>
+    </div>
+    <div class="duo">
+      <div class="box"><div class="mini">Wo</div><div class="v">Dietingen und Umgebung</div></div>
+      <div class="box"><div class="mini">Wann</div><div class="v">Ende Oktober / November</div><p>früh am Morgen, wenn noch Nebel liegt</p></div>
+    </div>
+    <p class="note">Den genauen Termin stimmen wir mit dir ab, je nach Wetter und Licht.</p>
+  </section>
+
+  <section>
+    <p class="k">Die Stationen</p>
+    <h2 class="sec">Drei Orte, drei Bilder</h2>
+    <div class="stations">
+      <div class="box"><span class="n">I</span><div class="v">Der Baum</div><p>Du, klein vor einem alten Baum.</p></div>
+      <div class="box"><span class="n">II</span><div class="v">Das Feld</div><p>Hohes Gras, Wind, ein Kleid in Bewegung.</p></div>
+      <div class="box"><span class="n">III</span><div class="v">Das Moos</div><p>Nahe Porträts, Haar im Gesicht.</p></div>
+    </div>
+    <p class="note">Vielleicht kommen noch das Wasser und ein Weg dazu.</p>
+    <ol class="day">
+      <li>Ankunft</li><li>Hair &amp; Make-up</li><li>Station I</li><li>Warme Pause</li><li>Outfitwechsel</li><li>Station II und III</li><li>Abschluss</li>
+    </ol>
+    <p class="note">Die Zeiten können sich mit Wetter und Licht verschieben.</p>
+  </section>
+
+  <section>
+    <p class="k">Der Look</p>
+    <h2 class="sec">Ein Hauch Rot</h2>
+    <div class="fg-text"><p style="font-style:normal;font-size:1.3rem;color:var(--ink)">Weiß, Schwarz, höchstens ein Hauch Rot. Jedes Outfit eine Farbe, kein Muster, kein Lärm. Wie Kleider, Tüll, Samt, Schleppe oder Cape, und der Rest kommt von draußen.</p></div>
+    <div class="swatches">
+      <div class="sw"><i style="background:#fbf6ee"></i>Weiß</div>
+      <div class="sw"><i style="background:#1a1114"></i>Schwarz</div>
+      <div class="sw"><i style="background:#7a1d31"></i>Rot<em>sparsam</em></div>
+      <div class="sw"><i style="background:#6b7355"></i>Moos<em>vom Ort</em></div>
+      <div class="sw"><i style="background:#b9bbb6"></i>Nebel<em>vom Ort</em></div>
+      <div class="sw"><i style="background:#8a6f58"></i>Erde<em>vom Ort</em></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="k">Let's get shoot ready</p>
+    <h2 class="sec">So kommst du gut vorbereitet an</h2>
+    <div class="ready">
+      <div class="box"><div class="mini">Vorher</div><p>Gepflegte, natürliche Nägel, Feuchtigkeitsmaske am Vortag, weiche Lippen. Haare gewaschen, aber ohne Pflegeprodukte, und kein Selbstbräuner.</p></div>
+      <div class="box"><div class="mini">Draußen</div><p>Es ist kalt, nass und uneben. Wärm dich bis zur Aufnahme warm und schlaf vorher ausreichend.</p></div>
+      <div class="box"><div class="mini">Posing</div><p>Übe Blick und Haltung vorher. Der Blick geht meist nicht in die Kamera.</p></div>
+    </div>
+    <p class="k" style="margin-top:2.4rem">Packliste</p>
+    <div class="chips">
+      <span>Langer Mantel oder Bademantel</span><span>Gummistiefel oder warme Schuhe</span><span>Decke</span><span>Thermoskanne</span><span>Handwärmer</span><span>Mütze und Handschuhe</span><span>Ersatzsocken</span><span>Handtuch</span>
+    </div>
+    <p class="leit">Wirkt das Bild, als wäre es schon immer da gewesen?</p>
+    <p class="credit">A Blueprint Atelier Production</p>
+  </section>
+
   <section>
     <article class="card">
       <p class="dear">Liebe Ellen,</p>
@@ -324,10 +416,10 @@ footer .hand{font-family:var(--script);font-size:clamp(2.3rem,8.5vw,3.3rem);line
       <div class="facts">
         <div class="fact"><div class="fl">Für</div><div class="fv">Ellen</div></div>
         <div class="fact"><div class="fl">Von</div><div class="fv">Carolin &amp; Luis</div></div>
-        <div class="fact"><div class="fl">Wo</div><div class="fv">Forgotten</div></div>
+        <div class="fact"><div class="fl">Wo</div><div class="fv">Dietingen und Umgebung</div></div>
+        <div class="fact"><div class="fl">Wann</div><div class="fv">Ende Oktober / November</div></div>
         <div class="fact" data-opt="validUntil"><div class="fl">Gültig bis</div><div class="fv" data-field="validUntil"></div></div>
         <div class="fact" data-opt="duration"><div class="fl">Dauer</div><div class="fv" data-field="duration"></div></div>
-        <div class="fact" data-opt="location"><div class="fl">Ort</div><div class="fv" data-field="location"></div></div>
       </div>
     </section>
   </div>
@@ -337,20 +429,12 @@ footer .hand{font-family:var(--script);font-size:clamp(2.3rem,8.5vw,3.3rem);line
     <h2 class="sec">Von hier bis zum Shooting</h2>
     <div class="steps">
       <div class="step"><div><h3>Termin aussuchen</h3><p>Such dir einen Tag, der zu dir passt. Sag uns einfach Bescheid, den Rest klären wir gemeinsam.</p></div></div>
-      <div class="step"><div><h3>Stimmung festlegen</h3><p>Spitze, Samt oder ganz in Schwarz? Überlege dir, wie du dich zeigen willst. Ideen findest du unten.</p></div></div>
+      <div class="step"><div><h3>Stimmung festlegen</h3><p>Einfarbig in Weiß oder Schwarz, höchstens ein Hauch Rot. Überlege dir, wie du dich zeigen willst. Alles Wichtige steht weiter oben.</p></div></div>
       <div class="step"><div><h3>Hingehen und genießen</h3><p>Du musst nichts weiter tun, als du selbst zu sein. Das Geschenk ist bezahlt.</p></div></div>
     </div>
     <div class="cta"><a class="btn" id="book" href="#" hidden>Termin ausmachen</a></div>
   </section>
 
-  <section>
-    <p class="k">Zum Träumen</p>
-    <h2 class="sec">Ideen für dein Shooting</h2>
-    <div class="chips">
-      <span>Kerzenlicht</span><span>Samt &amp; Spitze</span><span>Nebel</span><span>Herbstlaub</span>
-      <span>Schwarz &amp; Bordeaux</span><span>getrocknete Rosen</span><span>alte Spiegel</span><span>langer Mantel</span><span>Friedhofsromantik</span>
-    </div>
-  </section>
 </main>
 
 <footer id="foot" hidden>
@@ -363,7 +447,6 @@ const CONFIG = {
   voucherNo: "027",
   validUntil: "",
   duration: "",
-  location: "",
   bookingUrl: ""
 };
 document.querySelectorAll('[data-field]').forEach(el=>{
